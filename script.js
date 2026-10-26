@@ -79,8 +79,8 @@ function initMoleculeCanvas() {
       this.vx = (Math.random() - 0.5) * 0.7;
       this.vy = (Math.random() - 0.5) * 0.7;
       this.radius = Math.random() * 2.2 + 1.2;
-      this.baseColor = Math.random() > 0.4 ? 'rgba(0, 245, 212, ' : 'rgba(0, 180, 216, ';
-      this.alpha = Math.random() * 0.5 + 0.3;
+      this.baseColor = Math.random() > 0.4 ? 'rgba(13, 128, 80, ' : 'rgba(16, 185, 129, ';
+      this.alpha = Math.random() * 0.4 + 0.25;
     }
 
     update() {
@@ -107,10 +107,7 @@ function initMoleculeCanvas() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       ctx.fillStyle = this.baseColor + this.alpha + ')';
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = '#00f5d4';
       ctx.fill();
-      ctx.shadowBlur = 0;
     }
   }
 
@@ -133,7 +130,7 @@ function initMoleculeCanvas() {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(0, 245, 212, ${opacity})`;
+          ctx.strokeStyle = `rgba(13, 128, 80, ${opacity * 0.45})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -633,7 +630,7 @@ function initApiExplorer() {
           </div>
         </td>
         <td>
-          <span style="font-size: 0.88rem; color: #cbd5e1;">${escapeHtml(item.indication)}</span>
+          <span style="font-size: 0.88rem; color: var(--c-green-muted);">${escapeHtml(item.indication)}</span>
         </td>
         <td>
           <span class="cas-badge">CAS: ${escapeHtml(item.cas)}</span>
@@ -1235,7 +1232,7 @@ function initInteractiveForm() {
             <strong style="font-size: 1.05rem;">✉️ Opening Your Email Client...</strong>
           </div>
           <p>We've pre-filled your entire inquiry addressed to <strong>${recipient}</strong>.</p>
-          <p style="margin-top: 6px; color: #cbd5e1; font-size: 0.86rem;">
+          <p style="margin-top: 6px; color: var(--c-green-muted); font-size: 0.86rem;">
             Please check your opened email client (such as Outlook, Apple Mail, or webmail) and click <strong>Send</strong> to dispatch it directly to our team.
           </p>
           <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap;">
